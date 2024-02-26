@@ -1,7 +1,6 @@
 <?php
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
-
 $board_name = explode('_', $bo_table)[0];
 $board_lang = explode('_', $bo_table)[1];
 
@@ -15,13 +14,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 <script src="<?php echo G5_JS_URL; ?>/viewimageresize.js"></script>
 
-<div id="notice_view" class="sub notice">
-<?php 
-  if ($board_name == 'news') {
-    sub_top($sb_menus, 'news', 'news_news'); 
-  }
-  ?>
-  
+<div id="gallery_view" class="sub gallery">
+  <?php if ($board_name == 'data') {  
+    sub_top($sb_menus, 'service', 'svc_data'); 
+  }?>
 
   <!-- sub contents { -->
   <div class="container sub_contents">
@@ -35,7 +31,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
       <!-- 게시물 읽기 시작 { -->
       <article id="bo_v" style="width:<?php echo $width; ?>">
-
         <header>
           <div id="bo_v_title">
             <?php if ($category_name) { ?>
@@ -62,17 +57,17 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                   </strong>
                 </li> -->
                 <li>
-                  <span class="sound_only">작성일</span>
-                  <strong class="if_date">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    <?php echo date("y-m-d H:m:s", strtotime($view['wr_datetime'])) ?>
-                  </strong>
-                </li>
-                <li>
                   <span class="sound_only">조회</span>
                   <strong>
                     <i class="fa fa-eye" aria-hidden="true"></i>
-                    <?php echo number_format($view['wr_hit']) ?>
+                    <?php echo number_format($view['wr_hit']) ?>회
+                  </strong>
+                </li>
+                <li>
+                  <span class="sound_only">작성일</span>
+                  <strong class="if_date">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <?php echo date("Y-m-d", strtotime($view['wr_datetime'])) ?>
                   </strong>
                 </li>
               </ul>
@@ -93,7 +88,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           }
           ?>
           <?php if($cnt) { ?>
-          <div id="bo_v_file" class="bo_v_source_ct">
+            <div id="bo_v_file" class="bo_v_source_ct">
             <ul>
               <?php
               // 가변 파일
@@ -191,7 +186,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </div>
 
         <!-- 게시물 관리 버튼 시작 { -->
-          <?php if ($is_admin) { ?>
         <div id="bo_v_bot">
           <?php ob_start(); ?>
 
@@ -227,7 +221,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           ob_end_flush();
           ?>
         </div>
-        <?php } ?>
         <!-- } 게시물 관리 버튼 끝 -->
         
         <!-- 게시글 이동 버튼 { -->

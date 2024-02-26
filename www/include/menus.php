@@ -3,63 +3,161 @@ include_once('./_common.php');
 
 $sb_menus = [
   [
-    'id' => 'introduce',
-    'name' => '회사소개',
-    'link' => '/sub/test',
+    'id' => 'product',
+    'name' => 'Product',
+    'link' => '#',
     'sb_2menus' => [
       [
-        'id' => 'aboutus',
-        'name' => '회사소개',
-        'link' => '/sub/test',
-        'sb_3menus' => [
-          [
-            'id' => 'vision',
-            'name' => '비전',
-            'link' => '/sub/test'
-          ],
-          [
-            'id' => 'organization',
-            'name' => '조직도',
-            'link' => '/sub/test'
-          ]
-        ]
+        'id' => 'prd_ball',
+        'name' => '볼스크류',
+        'link' => '#',
+        // 'sb_3menus' => [
+        //   [
+        //     'id' => 'vision',
+        //     'name' => '비전',
+        //     'link' => '#'
+        //   ],
+        //   [
+        //     'id' => 'organization',
+        //     'name' => '조직도',
+        //     'link' => '#'
+        //   ]
+        // ]
       ],
       [
-        'id' => 'greeting',
-        'name' => 'CEO인사말',
-        'link' => '/sub/test'
+        'id' => 'prd_roller',
+        'name' => '롤러스크류',
+        'link' => '#'
       ],
       [
-        'id' => 'location',
-        'name' => '오시는 길',
-        'link' => '/sub/test'
+        'id' => 'prd_gear',
+        'name' => '기어박스',
+        'link' => '#'
+      ],
+      [
+        'id' => 'prd_rotary',
+        'name' => '회전형 액츄에이터',
+        'link' => '#'
+      ],
+      [
+        'id' => 'prd_linear',
+        'name' => '선형 액츄에이터',
+        'link' => '#'
       ]
     ]
   ],
   [
-    'id' => 'cs',
-    'name' => '고객지원',
+    'id' => 'industry',
+    'name' => 'Industry',
     'link' => '/qa',
     'sb_2menus' => [
       [
-        'id' => 'qa',
-        'name' => '문의하기',
-        'link' => '/qa/write'
+        'id' => 'ind_defense',
+        'name' => '방위산업',
+        'link' => '#'
       ],
       [
-        'id' => 'gallery',
-        'name' => '갤러리',
-        'link' => '/gallery'
+        'id' => 'ind_general',
+        'name' => '일반산업',
+        'link' => '#'
       ],
       [
-        'id' => 'notice',
+        'id' => 'ind_rnd',
+        'name' => '연구개발',
+        'link' => '#'
+      ]
+    ]
+  ],
+  [
+    'id' => 'aboutus',
+    'name' => 'About us',
+    'link' => '#',
+    'sb_2menus' => [
+      [
+        'id' => 'abt_company',
+        'name' => '회사소개',
+        'link' => '#'
+      ],
+      [
+        'id' => 'abt_history',
+        'name' => '연혁',
+        'link' => '#'
+      ],
+      [
+        'id' => 'abt_management',
+        'name' => '지속간으경영',
+        'link' => '#'
+      ],
+      [
+        'id' => 'abt_workplace',
+        'name' => '사업장',
+        'link' => '#'
+      ]
+    ]
+  ],
+  [
+    'id' => 'capabilities',
+    'name' => 'Capabilities',
+    'link' => '#',
+    'sb_2menus' => [
+      [
+        'id' => 'cap_research',
+        'name' => '연구분야/연구실적',
+        'link' => '#'
+      ],
+      [
+        'id' => 'cap_test',
+        'name' => '시험평가능력',
+        'link' => '#'
+      ],
+      [
+        'id' => 'cap_system',
+        'name' => '품질경영시스템',
+        'link' => '#'
+      ],
+      [
+        'id' => 'cap_equipment',
+        'name' => '주요장비',
+        'link' => '#'
+      ]
+    ]
+  ],
+  [
+    'id' => 'news',
+    'name' => 'News',
+    'link' => '/news_kr',
+    'sb_2menus' => [
+      [
+        'id' => 'news_news',
+        'name' => '뉴스',
+        'link' => '/news_kr'
+      ],
+      [
+        'id' => 'news_video',
+        'name' => '홍보동영상',
+        'link' => '#'
+      ]
+    ]
+  ],
+  [
+    'id' => 'service',
+    'name' => 'Service',
+    'link' => '#',
+    'sb_2menus' => [
+      [
+        'id' => 'svc_notice',
         'name' => '공지사항',
-        'link' => '/notice'
+        'link' => '#'
       ],
       [
-        'id' => 'faq',
-        'name' => '자주묻는질문',
-        'link' => '/faq'
+        'id' => 'svc_data',
+        'name' => '기술자료',
+        'link' => '/data_kr?sca=카탈로그'
+      ],
+      [
+        'id' => 'svc_inquiry',
+        'name' => '문의사항',
+        'link' => '#'
       ]
     ]
   ]

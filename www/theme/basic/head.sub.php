@@ -80,6 +80,7 @@ var g5_admin_url = "<?php echo G5_ADMIN_URL; ?>";
 /* JS 파일 연결 */
 add_javascript('<script src="'.G5_JS_URL.'/jquery-1.12.4.min.js"></script>', 0);
 add_javascript('<script src="'.G5_JS_URL.'/jquery-migrate-1.4.1.min.js"></script>', 0);
+add_javascript('<script type="module" src="'.EUM_JS_URL.'/jquery-3.7.0.min.js"></script>', 0);
 if (defined('_SHOP_')) {
   if(!G5_IS_MOBILE) {
     add_javascript('<script src="'.G5_JS_URL.'/jquery.shop.menu.js?ver='.G5_JS_VER.'"></script>', 0);

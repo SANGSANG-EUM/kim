@@ -1,5 +1,6 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
+include_once(G5_LIB_PATH.'/thumbnail.lib.php');
 
 $board_name = explode('_', $bo_table)[0];
 $board_lang = explode('_', $bo_table)[1];
@@ -8,24 +9,19 @@ if ($board_lang == 'kr') {
   include_once(EUM_INCLUDE_PATH.'/sub_top.php');
 }
 
-// 선택옵션으로 인해 셀합치기가 가변적으로 변함
-$colspan = 5;
-
-if ($is_checkbox) $colspan++;
-if ($is_good) $colspan++;
-if ($is_nogood) $colspan++;
-
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
+
+/*
+#관리자 > 게시판 관리 > 갤러리 이미지 폭, 갤러리 이미지 높이 = 300 으로 설정
+*/
 ?>
 
 
-<div id="notice_list" class="sub notice">
-  <?php 
-  if ($board_name == 'news') {
-    sub_top($sb_menus, 'news', 'news_news'); 
-  }
-  ?>
+<div id="gallery_list" class="sub gallery">
+  <?php if ($board_name == 'data') {
+    sub_top($sb_menus, 'service', 'svc_data'); 
+  }?>
 
   <!-- sub contents { -->
   <div class="container sub_contents">
@@ -38,7 +34,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
       </div>
 
       <!-- 게시판 목록 시작 { -->
-      <div id="bo_list" style="width:<?php echo $width; ?>">
+      <div id="bo_gall" style="width:<?php echo $width; ?>">
 
         <!-- 게시판 카테고리 시작 { -->
         <?php if ($is_category) { ?>
@@ -49,17 +45,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           </ul>
         </nav>
         <?php } ?>
-        <!-- } 게시판 카테고리 끝 -->
-        
+        <!-- } 게시판 페이지 정보 -->
+
         <div class="bo_top_info">
           <!-- 게시판 페이지 정보 { -->
           <div id="bo_list_total">
-            <span class="black">Total</span> : <?php echo number_format($total_count) ?> (<span class="blue"><?php echo $page ?></span> / <?php echo $total_page ?> Page)
+            <span>Total <?php echo number_format($total_count) ?>건</span>
+            <?php echo $page ?> 페이지
           </div>
           <!-- } 게시판 페이지 정보 -->
 
           <!-- 게시판 검색 시작 { -->
-          <div class="bo_sch_wrap">
+            <div class="bo_sch_wrap">
             <fieldset class="bo_sch">
               <h3 class="sound_only">검색</h3>
               <form name="fsearch" method="get">
@@ -91,122 +88,134 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           </div>
           <!-- } 게시판 검색 끝 --> 
         </div>
-        
-        <form name="fboardlist" id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
+
+        <form name="fboardlist"  id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
           <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
           <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
           <input type="hidden" name="stx" value="<?php echo $stx ?>">
           <input type="hidden" name="spt" value="<?php echo $spt ?>">
-          <input type="hidden" name="sca" value="<?php echo $sca ?>">
           <input type="hidden" name="sst" value="<?php echo $sst ?>">
           <input type="hidden" name="sod" value="<?php echo $sod ?>">
           <input type="hidden" name="page" value="<?php echo $page ?>">
           <input type="hidden" name="sw" value="">
 
-          <div class="tbl_head01 tbl_wrap">
-            <table>
-              <caption><?php echo $board['bo_subject'] ?> 목록</caption>
-              <thead>
-                <tr>
-                  <?php if ($is_checkbox) { ?>
-                  <th scope="col" class="all_chk chk_box">
-                    <input type="checkbox" id="chkall" onclick="if (this.checked) all_checked(true); else all_checked(false);" class="selec_chk">
-                    <label for="chkall">
-                      <span></span>
-                      <b class="sound_only">현재 페이지 게시물  전체선택</b>
-                    </label>
-                  </th>
-                  <?php } ?>
-                  <!-- <th scope="col">번호</th>
-                  <th scope="col">제목</th>
-                  <th scope="col">글쓴이</th>
-                  <th scope="col"><?php echo subject_sort_link('wr_hit', $qstr2, 1) ?>조회 </a></th>
-                  <th scope="col"><?php echo subject_sort_link('wr_datetime', $qstr2, 1) ?>날짜  </a></th> -->
-                </tr>
-              </thead>
-              <tbody>
-                <?php for ($i=0; $i<count($list); $i++) { ?>
-                <tr class="<?php if ($list[$i]['is_notice']) echo "bo_notice"; ?>">
-                  <?php if ($is_checkbox) { ?>
-                  <td class="td_chk chk_box">
+          <?php if ($is_checkbox) { ?>
+          <div id="gall_allchk" class="all_chk chk_box">
+              <input type="checkbox" id="chkall" onclick="if (this.checked) all_checked(true); else all_checked(false);" class="selec_chk">
+              <label for="chkall">
+                  <span></span>
+                  <b class="sound_only">현재 페이지 게시물 </b> 전체선택
+              </label>
+          </div>
+          <?php } ?>
+
+          <div id="gall_contents">
+            <ul id="gall_ul" class="gall_row">
+              <?php
+              for ($i=0; $i<count($list); $i++) {
+                $classes = array();
+                $classes[] = 'gall_li';
+                $classes[] = 'col-gn-'.$bo_gallery_cols;
+
+                if( $i && ($i % $bo_gallery_cols == 0) ){
+                  $classes[] = 'box_clear';
+                }
+
+                if( $wr_id && $wr_id == $list[$i]['wr_id'] ){
+                  $classes[] = 'gall_now';
+                }
+
+                $line_height_style = ($board['bo_gallery_height'] > 0) ? 'line-height:'.$board['bo_gallery_height'].'px' : '';
+              ?>
+              <li class="<?php echo implode(' ', $classes); ?>">
+                <div class="gall_box">
+                  <div class="gall_chk chk_box">
+                    <?php if ($is_checkbox) { ?>
                     <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>" class="selec_chk">
                     <label for="chk_wr_id_<?php echo $i ?>">
                       <span></span>
                       <b class="sound_only"><?php echo $list[$i]['subject'] ?></b>
                     </label>
-                  </td>
-                  <?php } ?>
-
-                  <td class="td_num2">
-                  <?php
-                  if ($list[$i]['is_notice']) // 공지사항
-                    echo '<strong class="notice_icon">공지</strong>';
-                  else if ($wr_id == $list[$i]['wr_id'])
-                    echo "<span class=\"bo_current\">열람중</span>";
-                  else
-                    echo $list[$i]['num'];
-                  ?>
-                  </td>
-
-                  <td class="td_subject mo_td_view">
-                    <?php if ($is_category && $list[$i]['ca_name']) { //게시글 카테고리 사용+카테고리 등록되었을 경우 ?>
-                    <span class="bo_cate_link">
-                      <?php echo $list[$i]['ca_name'] ?>
-                    </span>
                     <?php } ?>
 
-                    <a href="<?php echo $list[$i]['href'] ?>" class="bo_tit">
-                      <?php if ($list[$i]['is_notice'] || $is_category && $list[$i]['ca_name']){ ?>
-                      <ul class="i-col-0 mo_view mo_category">
-                        <?php if ($list[$i]['is_notice']){ // 공지사항 ?>
+                    <span class="sound_only">
+                      <?php
+                      if ($wr_id == $list[$i]['wr_id'])
+                        echo "<span class=\"bo_current\">열람중</span>";
+                      else
+                        echo $list[$i]['num'];
+                      ?>
+                    </span>
+                  </div>
+                  <div class="gall_con">
+                    <p class="cut_text bo_tit">
+                      <?php echo $list[$i]['wr_subject']; //글 제목 ?>
+                    </p>
+                    <div class="gall_img">
+                      <a href="<?php if ($is_admin) {echo $list[$i]['href'];} else {echo 'javascript:void(0)';} ?>" class="<?php if (!$is_admin) {echo 'noclick';}?>">
+                      <?php
+                      if ($list[$i]['is_notice']) { // 공지사항  ?>
+                        <span class="is_notice" style="<?php echo $line_height_style; ?>">공지</span>
+                      <?php } else {
+                        $thumb = get_list_thumbnail($board['bo_table'], $list[$i]['wr_id'], $board['bo_gallery_width'], $board['bo_gallery_height'], false, true);
+
+                        if($thumb['src']) {
+                          $img_content = '<img src="'.$thumb['src'].'" alt="'.$thumb['alt'].'" >';
+                        } else {
+                          $img_content = '<span class="no_image" style="'.$line_height_style.'">no image</span>';
+                        }
+
+                        echo run_replace('thumb_image_tag', $img_content, $thumb);
+                      }
+                      ?>
+                      </a>
+                    </div>
+                    <!-- <div class="gall_text_href">
+                      <?php if ($is_category && $list[$i]['ca_name']) { ?>
+                      <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link"><?php echo $list[$i]['ca_name'] ?></a>
+                      <?php } ?>
+                      <duv class="bo_cnt"><?php echo utf8_strcut(strip_tags($list[$i]['wr_content']), 68, '..'); ?></duv>
+                    </div> -->
+
+                    <div class="data-download-wr">
+                      <a href="<?=$list[$i]['file'][1]['path'].'/'.$list[$i]['file'][1]['file']?>" target="_blank" class="data-download-btn"><span>PDF 보기</span><img src="/source/img/icon-view.png" alt=""></a>
+                      <a href="<?=$list[$i]['file'][1]['href']?>" download class="data-download-btn"><span>카탈로그 다운로드</span><img src="/source/img/icon-download.png" alt=""></a>
+                    </div>
+
+                    <div class="cf gall_info">
+                      <ul class="i-col-0 gall_info_ul">
                         <li>
-                          <span class="notice_icon">공지</span>
-                        </li>
-                        <?php } ?>
-                        <?php if ($is_category && $list[$i]['ca_name']) { //게시글 카테고리 사용+카테고리 등록되었을 경우 ?>
-                        <li>
-                          <span class="bo_cate_link">
-                            <?php echo $list[$i]['ca_name'] ?>
+                          <span class="sound_only">작성자 </span>
+                          <span class="gall_info_txt gall_writer">
+                            <i class="fa fa-user-o" aria-hidden="true"></i><?php echo $list[$i]['name'] ?>
                           </span>
                         </li>
-                        <?php } ?>
+                        <li>
+                          <span class="sound_only">조회 </span>
+                          <span class="gall_info_txt gall_view">
+                            <i class="fa fa-eye" aria-hidden="true"></i><?php echo $list[$i]['wr_hit'] ?>
+                          </span>
+                        </li>
                       </ul>
-                      <?php } ?>
-                      <p class="bo_subject"><?php echo $list[$i]['subject']; //글 제목 ?></p>
-                      <p class="bo_content"><?php echo $list[$i]['wr_content']; //글 내용 ?></p>
-
-                      <?php
-                      //echo $list[$i]['icon_reply']; //댓글 아이콘
-                      //if (isset($list[$i]['icon_secret'])) echo rtrim($list[$i]['icon_secret']); //비밀글 아이콘
-                      //if ($list[$i]['icon_new']) echo "<span class=\"new_icon\">N<span class=\"sound_only\">새글</span></span>"; //비밀글 아이콘
-                      //if (isset($list[$i]['icon_file'])) echo rtrim($list[$i]['icon_file']); //첨부파일 아이콘
-                      //if (isset($list[$i]['icon_link'])) echo rtrim($list[$i]['icon_link']); //관련링크 아이콘
-                      ?>
-                      <?php if ($list[$i]['comment_cnt']) { ?><span class="sound_only">댓글</span><span class="cnt_cmt"><?php echo $list[$i]['wr_comment']; ?></span><span class="sound_only">개</span><?php } ?>
-                    </a>
-
-                    <div class="mo_view mo_contents">
-                      <ul class="i-col-0 bo_info">
-                        <li><i class="fa fa-user-o" aria-hidden="true"></i><?php echo $list[$i]['name'] ?></li>
-                        <li><i class="fa fa-eye" aria-hidden="true"></i><?php echo $list[$i]['wr_hit'] ?></li>
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo date("Y.m.d", strtotime($list[$i]['wr_datetime'])) ?></li>
-                      </ul>
+                      <div class="gall_info_date">
+                        <span class="sound_only">작성일 </span>
+                        <span class="gall_info_txt gall_date">
+                          <?php echo date("Y.m.d", strtotime($list[$i]['wr_datetime'])) ?>
+                        </span>
+                      </div>
                     </div>
-                  </td>
-                  <!-- <td class="td_name"><?php //echo $list[$i]['name'] ?></td>
-                  <td class="td_num"><?php //echo $list[$i]['wr_hit'] ?></td> -->
-                  <td class="td_datetime"><?php echo date("Y-m-d", strtotime($list[$i]['wr_datetime'])) ?></td>
-                </tr>
-                <?php } ?>
-                <?php if (count($list) == 0) { echo '<tr><td colspan="'.$colspan.'" class="empty_table">게시물이 없습니다.</td></tr>'; } ?>
-              </tbody>
-            </table>
+                  </div>
+                </div>
+              </li>
+              <?php } ?>
+              <?php if (count($list) == 0) { echo "<li class=\"empty_list\">게시물이 없습니다.</li>"; } ?>
+            </ul>
           </div>
-
+          
           <!-- 페이지 -->
           <?php echo $write_pages; ?>
           <!-- 페이지 -->
-
+          
           <?php if ($list_href || $is_checkbox || $write_href) { ?>
           <div class="bo_fx">
             <div class="bo_fx_wrap">
@@ -297,7 +306,7 @@ function fboardlist_submit(f) {
 function select_copy(sw) {
     var f = document.fboardlist;
 
-    if (sw == "copy")
+    if (sw == 'copy')
         str = "복사";
     else
         str = "이동";

@@ -29,39 +29,81 @@ if(defined('_INDEX_')) { // index에서만 실행
 ?>
 
 <!-- 헤더 시작 { -->
-<div id="header">
-  <h1 id="hd_logo">
-    <a href="/">LOGO</a>
-  </h1>
-
-  <nav id="hd_gnb">
-    <ul class="depth1">
+<header class="header">
+  <div class="head-in">
+    <a href="/" class="head-logo">
+      <img src="../source/img/logo_w.png" alt="주식회사 킴" class="hd-icon-white">
+      <img src="../source/img/logo_b.png" alt="주식회사 킴" class="hd-icon-color">
+    </a>
+    <ul class="gnb-ul">
       <?php foreach ($sb_menus as $menu) { ?>
-      <li>
+      <li class="gnb-li">
         <a href="<?php echo $menu['link'];?>"><?php echo $menu['name'];?></a>
-        <?php if ( isset($menu['sb_2menus']) ) { ?>
-        <ul class="depth2">
-          <?php foreach ($menu['sb_2menus'] as $menu2) { ?>
-          <li>
-            <a href="<?php echo $menu2['link'];?>"><?php echo $menu2['name'];?></a>
-            <?php if ( isset($menu2['sb_3menus']) ) { ?>
-            <ul class="depth3">
-              <?php foreach ($menu2['sb_3menus'] as $menu3) { ?>
-              <li>
-                <a href="<?php echo $menu3['link'];?>"><?php echo $menu3['name'];?></a>
-              </li>
-              <?php } ?>
-            </ul>
-            <?php } ?>
-          </li>
-          <?php } ?>
-        </ul>
-        <?php } ?>
       </li>
       <?php } ?>
     </ul>
-  </nav>
-</div>
+    <div class="tnb-wr">
+      <ul class="tnb-ul">
+        <li class="tnb-li">
+          <div class="hd-lang-wr">
+            <button type="button" class="hd-lang-btn">
+              <span>KR</span>
+              <img src="../source/img/icon-select_w.png" alt="언어변경" class="hd-icon-white">
+              <img src="../source/img/icon-select_g.png" alt="언어변경" class="hd-icon-color">
+            </button>
+            <ul class="hd-lang-ul">
+              <li class="hd-lang-li">
+                <a href="">EN</a>
+              </li>
+              <li class="hd-lang-li">
+                <a href="">CN</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="tnb-li">
+          <a href="" class="hd-contact-btn">
+            <img src="../source/img/icon-envelope.png" alt="" class="hd-icon-white">
+            <img src="../source/img/icon-envelope_g.png" alt="" class="hd-icon-color">
+            <span>Contact us</span>
+          </a>
+        </li>
+        <li class="tnb-li">
+          <button type="button" class="hd-sch-btn">
+            <img src="../source/img/icon-search.png" alt="검색" class="hd-icon-white">
+            <img src="../source/img/icon-search_b.png" alt="검색" class="hd-icon-color">
+          </button>
+        </li>
+      </ul>
+      <button type="button" class="hd-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <div class="head-menu">
+    <div class="wrapper">
+      <ul class="head-menu-ul">
+        <?php foreach ($sb_menus as $menu) { ?>
+        <li class="head-menu-li">
+          <a href="<?php echo $menu['link'];?>"><?php echo $menu['name'];?></a>
+          <ul class="head-menu-2dep-ul">
+          <?php foreach ($menu['sb_2menus'] as $menu2) { ?>
+            <li class="head-menu-2dep-li">
+              <a href="<?php echo $menu2['link'];?>"><?php echo $menu2['name'];?></a>
+            </li>
+            <?php } ?>
+          </ul>
+        </li>
+
+        <?php } ?>
+      </ul>
+      </li>
+      </ul>
+    </div>
+  </div>
+</header>
 <!-- } 헤더 끝 -->
 
 

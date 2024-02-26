@@ -10,15 +10,15 @@ if ($board_lang == 'kr') {
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
+
+$upload[$i]['file'] = $filename;
 ?>
 
-<div id="notice_write" class="sub notice">
-<?php 
-  if ($board_name == 'news') {
-    sub_top($sb_menus, 'news', 'news_news'); 
-  }
-  ?>
-  
+<div id="gallery_write" class="sub gallery">
+  <?php if ($board_name == 'data') {
+    sub_top($sb_menus, 'service', 'svc_data'); 
+  }?>
+
   <!-- sub contents { -->
   <div class="container sub_contents">
     <div class="wrapper">
@@ -149,14 +149,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           </div>
 
           <?php for ($i=1; $is_link && $i<=G5_LINK_COUNT; $i++) { ?>
-          <div class="bo_w_link write_div">
+          <!-- <div class="bo_w_link write_div">
             <label for="wr_link<?php echo $i ?>"><i class="fa fa-link" aria-hidden="true"></i><span class="sound_only"> 링크  #<?php echo $i ?></span></label>
             <input type="text" name="wr_link<?php echo $i ?>" value="<?php if($w=="u"){ echo $write['wr_link'.$i]; } ?>" id="wr_link<?php echo $i ?>" class="frm_input full_input" size="50">
-          </div>
+          </div> -->
           <?php } ?>
 
-          <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
+          <?php //for ($i=0; $is_file && $i<$file_count; $i++) { ?>
           <div class="bo_w_flie write_div">
+            <p>썸네일 이미지 등록</p>
             <div class="file_wr write_div">
               <label for="bf_file_<?php echo $i+1 ?>" class="lb_icon"><i class="fa fa-folder-open" aria-hidden="true"></i><span class="sound_only"> 파일 #<?php echo $i+1 ?></span></label>
               <input type="file" name="bf_file[]" id="bf_file_<?php echo $i+1 ?>" title="파일첨부 <?php echo $i+1 ?> : 용량 <?php echo $upload_max_filesize ?> 이하만 업로드 가능" class="frm_file ">
@@ -171,7 +172,23 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             </span>
             <?php } ?>
           </div>
-          <?php } ?>
+          <div class="bo_w_flie write_div">
+            <p>파일 등록</p>
+            <div class="file_wr write_div">
+              <label for="bf_file_<?php echo $i+1 ?>" class="lb_icon"><i class="fa fa-folder-open" aria-hidden="true"></i><span class="sound_only"> 파일 #<?php echo $i+1 ?></span></label>
+              <input type="file" name="bf_file[]" id="bf_file_<?php echo $i+1 ?>" title="파일첨부 <?php echo $i+1 ?> : 용량 <?php echo $upload_max_filesize ?> 이하만 업로드 가능" class="frm_file ">
+            </div>
+            <?php if ($is_file_content) { ?>
+            <input type="text" name="bf_content[]" value="<?php echo ($w == 'u') ? $file[$i]['bf_content'] : ''; ?>" title="파일 설명을 입력해주세요." class="full_input frm_input" size="50" placeholder="파일 설명을 입력해주세요.">
+            <?php } ?>
+
+            <?php if($w == 'u' && $file[$i]['file']) { ?>
+            <span class="file_del">
+              <input type="checkbox" id="bf_file_del<?php echo $i ?>" name="bf_file_del[<?php echo $i;  ?>]" value="1"> <label for="bf_file_del<?php echo $i ?>"><?php echo $file[$i]['source'].'('.$file[$i]['size'].')';  ?> 파일 삭제</label>
+            </span>
+            <?php } ?>
+          </div>
+          <?php //} ?>
 
           <?php if ($is_use_captcha) { //자동등록방지  ?>
           <div class="write_div">

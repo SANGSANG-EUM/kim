@@ -1,6 +1,7 @@
 <?php
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
+
 $board_name = explode('_', $bo_table)[0];
 $board_lang = explode('_', $bo_table)[1];
 
@@ -15,9 +16,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 <script src="<?php echo G5_JS_URL; ?>/viewimageresize.js"></script>
 
 <div id="gallery_view" class="sub gallery">
-  <?php if ($board_name == 'data') {  
-    sub_top($sb_menus, 'service', 'svc_data'); 
-  }?>
+  <?php if ($board_name == 'equipment') {
+    sub_top($sb_menus, 'capabilities', 'cap_equipment'); 
+  } else if ($board_name == 'test') {
+    sub_top($sb_menus, 'capabilities', 'cap_test'); 
+  } ?>
 
   <!-- sub contents { -->
   <div class="container sub_contents">
@@ -36,26 +39,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <?php if ($category_name) { ?>
             <span class="bo_v_cate"><?php echo $view['ca_name']; // 분류 출력 끝 ?></span> 
             <?php } ?>
-            <span class="bo_v_tit"><?php echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력 ?></span>
+            <!-- <span class="bo_v_tit"><?php //echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력 ?></span> -->
+            <span class="bo_v_tit"><?php echo cut_str(get_text($view['content']), 70); // 글제목 출력 ?></span>
           </div>
 
           <div class="profile_info">
             <div class="profile_info_ct">
               <ul class="i-col-0 profile_info_ct_ul">
-                <!-- <li>
-                  <span class="sound_only">작성자</span>
-                  <strong>
-                    <i class="fa fa-user-o" aria-hidden="true"></i>
-                    <?php //echo $view['name'] ?>
-                  </strong>
-                </li>
-                <li>
-                  <span class="sound_only">댓글</span>
-                  <strong>
-                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                    <?php //echo number_format($view['wr_comment']) ?>건
-                  </strong>
-                </li> -->
                 <li>
                   <span class="sound_only">작성일</span>
                   <strong class="if_date">
@@ -88,7 +78,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           }
           ?>
           <?php if($cnt) { ?>
-            <div id="bo_v_file" class="bo_v_source_ct">
+          <div id="bo_v_file" class="bo_v_source_ct">
             <ul>
               <?php
               // 가변 파일
@@ -147,7 +137,28 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           <h2 id="bo_v_atc_title">본문</h2>
           <!-- 본문 내용 시작 { -->
           <div id="bo_v_con">
-            <?php echo get_view_thumbnail($view['content']); ?>
+            <?php //echo get_view_thumbnail($view['content']); ?>
+            <div class="card-txt-wr">
+              <p class="card-txt1"><?php echo $view['subject'] ?></p>
+              <p class="card-txt2"><?php echo get_view_thumbnail($view['content']); ?></p>
+              <?php if ($view['wr_1']) { ?><p class="card-txt3"><?php echo $view['wr_1']; ?></p><?php } ?>
+
+              <table class="card-info-tb">
+                <tbody>
+                  <?php for ($j = 2; $j <= 6; $j++) { ?>
+                    <?php if ($view['wr_' . $j]) { 
+                        $card_key = explode(':', $view['wr_' . $j])[0];
+                        $card_val = explode(':', $view['wr_' . $j])[1];
+                    ?>
+                    <tr>
+                      <th class="card-info-th"><?php echo $card_key; ?></th>
+                      <td class="card-info-td"><?php echo $card_val; ?></td>
+                    </tr>
+                    <?php } ?>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- } 본문 내용 끝 -->
         </section>
@@ -224,7 +235,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <!-- } 게시물 관리 버튼 끝 -->
         
         <!-- 게시글 이동 버튼 { -->
-        <div id="bo_v_oth" style="display: none;">
+        <div id="bo_v_oth">
           <a href="<?php echo $list_href ?>" class="bo_v_back_btn">LIST</a>
 
           <?php if ($prev_href || $next_href) { ?>

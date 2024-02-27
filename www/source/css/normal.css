@@ -167,7 +167,7 @@
 .sub-visual.product {background-image: url('/source/img/subvisual1.jpg');}
 .sub-visual.industry {background-image: url('/source/img/subvisual2.jpg');}
 .sub-visual.aboutus {background-image: url('/source/img/subvisual3.jpg');}
-.sub-visual.capabilites {background-image: url('/source/img/subvisual4.jpg');}
+.sub-visual.capabilities {background-image: url('/source/img/subvisual4.jpg');}
 .sub-visual.news {background-image: url('/source/img/subvisual5.jpg');}
 .sub-visual.service {background-image: url('/source/img/subvisual6.jpg');}
 .sub-visual .wrapper {height: 100%;}
@@ -177,7 +177,7 @@
 .sub-visual-txt {font-weight: 700;}
 .sub-location {display: flex; align-items: center; padding: 7px; background-color: rgba(0, 0, 0, .4); border-radius: 40px;}
 .sub-location-ul {display: none; position: absolute; top: calc(100% + 10px); left: 0; padding: 10px 15px; width: auto; border-radius: 15px; background-color: rgba(0, 0, 0, 0.7); z-index: 100;}
-.sub-location-li a {display: block; padding: 3px 0; padding-right: 35px; color: #ccc; transition: .2s;}
+.sub-location-li a {display: block; padding: 3px 0; padding-right: 35px; color: #ccc; transition: .2s; white-space: nowrap;}
 .sub-loca-home {display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid #fff;}
 .sub-loca-home img {width: 18px;}
 .sub-location-btn-wr {position: relative; height: 100%;}

@@ -1,7 +1,13 @@
 <?php
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
-include_once(EUM_INCLUDE_PATH.'/sub_top.php');
+
+$board_name = explode('_', $bo_table)[0];
+$board_lang = explode('_', $bo_table)[1];
+
+if ($board_lang == 'kr') {
+  include_once(EUM_INCLUDE_PATH.'/sub_top.php');
+}
 
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
@@ -10,11 +16,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 <script src="<?php echo G5_JS_URL; ?>/viewimageresize.js"></script>
 
 <div id="faq_view" class="sub faq">
-  <?php sub_top($sb_menus, 'cs', 'faq'); ?>
+  <?php if ($board_name == 'faq') {
+    sub_top($sb_menus, 'service', 'svc_faq'); 
+  }?>
 
   <!-- sub contents { -->
   <div class="container sub_contents">
     <div class="wrapper">
+
+      <div class="sub-tit-wr">
+        <h3 class="sub-tit">
+          <!-- 해당 페이지의 타이틀이 들어갑니다 -->
+        </h3>
+      </div>
 
       <!-- 게시물 읽기 시작 { -->
       <article id="bo_v" style="width:<?php echo $width; ?>">
@@ -135,6 +149,39 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           <!-- } 본문 내용 끝 -->
         </section>
 
+        <ul class="board-move-ul">
+          <li class="board-move-li">
+            <div class="board-move-direction">
+              <img src="/source/img/icon-board_prev.png" alt="">
+              <span>PREV</span>
+            </div>
+            <div class="board-move-name">
+            <?php if ($prev_href) { ?>
+              <a href="<?php echo $prev_href ?>"><?php echo $prev_wr_subject ?></a>
+            <?php } else { ?>
+              <p class="board-move-nothing">이전 글이 없습니다.</p>
+            <?php } ?>
+            </div>
+          </li>
+          <li class="board-move-li">
+            <div class="board-move-direction">
+              <img src="/source/img/icon-board_next.png" alt="">
+              <span>NEXT</span>
+            </div>
+            <div class="board-move-name">
+            <?php if ($next_href) { ?>
+              <a href="<?php echo $next_href ?>"><?php echo $next_wr_subject ?></a>
+            <?php } else { ?>
+              <p class="board-move-nothing">다음 글이 없습니다.</p>
+            <?php } ?>
+            </div>
+          </li>
+        </ul>
+
+        <div class="board-list-btn-wr">
+          <a href="<?php echo $list_href ?>" class="board-list-btn">Back to List</a>
+        </div>
+
         <!-- 게시물 관리 버튼 시작 { -->
         <div id="bo_v_bot">
           <?php ob_start(); ?>
@@ -174,7 +221,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <!-- } 게시물 관리 버튼 끝 -->
         
         <!-- 게시글 이동 버튼 { -->
-        <div id="bo_v_oth">
+        <div id="bo_v_oth" style="display: none;">
           <a href="<?php echo $list_href ?>" class="bo_v_back_btn">LIST</a>
 
           <?php if ($prev_href || $next_href) { ?>
@@ -199,7 +246,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <!-- } 게시글 이동 버튼 -->
 
         <!-- 댓글 영역 { -->
-        <?php include_once(G5_BBS_PATH.'/view_comment.php'); ?>
+        <?php //include_once(G5_BBS_PATH.'/view_comment.php'); ?>
         <!-- } 댓글 영역 -->
       </article>
       <!-- } 게시판 읽기 끝 -->

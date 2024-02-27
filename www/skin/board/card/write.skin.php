@@ -12,15 +12,17 @@ if ($board_lang == 'kr') {
 add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0);
 ?>
 
-<div id="faq_write" class="sub faq">
-  <?php if ($board_name == 'faq') {
-    sub_top($sb_menus, 'service', 'svc_faq'); 
-  }?>
+<div id="gallery_write" class="sub gallery">
+  <?php if ($board_name == 'equipment') {
+    sub_top($sb_menus, 'capabilities', 'cap_equipment'); 
+  } else if ($board_name == 'test') {
+    sub_top($sb_menus, 'capabilities', 'cap_test'); 
+  } ?>
 
   <!-- sub contents { -->
   <div class="container sub_contents">
     <div class="wrapper">
-      
+
       <div class="sub-tit-wr">
         <h3 class="sub-tit">
           <!-- 해당 페이지의 타이틀이 들어갑니다 -->
@@ -105,7 +107,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           </div>
 
           <?php if ($option) { ?>
-          <div class="write_div write_opt_div">
+          <div class="write_div">
             <span class="sound_only">옵션</span>
             <ul class="bo_v_option">
               <?php echo $option ?>
@@ -117,7 +119,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
             
             <div id="autosave_wrapper" class="write_div">
-              <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" size="50" maxlength="255" placeholder="제목">
+              <input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input full_input required" size="50" maxlength="255" placeholder="분류(필수)">
               <?php if ($is_member) { // 임시 저장된 글 기능 ?>
               <script src="<?php echo G5_JS_URL; ?>/autosave.js"></script>
               <?php if($editor_content_js) echo $editor_content_js; ?>
@@ -138,7 +140,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
               <!-- 최소/최대 글자 수 사용 시 -->
               <p id="char_count_desc">이 게시판은 최소 <strong><?php echo $write_min; ?></strong>글자 이상, 최대 <strong><?php echo $write_max; ?></strong>글자 이하까지 글을 쓰실 수 있습니다.</p>
               <?php } ?>
-              <?php echo $editor_html; // 에디터 사용시는 에디터로, 아니면 textarea 로 노출 ?>
+              <?php //echo $editor_html; // 에디터 사용시는 에디터로, 아니면 textarea 로 노출 ?>
+              <input type="text" name="wr_content" value="<?php echo $content ?>" id="wr_content" required class="frm_input full_input required" size="50" maxlength="255" placeholder="대제목(필수)">
               <?php if($write_min || $write_max) { ?>
               <!-- 최소/최대 글자 수 사용 시 -->
               <div id="char_count_wrap"><span id="char_count"></span>글자</div>
@@ -146,14 +149,40 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             </div>
           </div>
 
-          <?php for ($i=1; $is_link && $i<=0; $i++) { ?>
-          <div class="bo_w_link write_div">
+          <div class="write_div">
+            <input type="text" name="wr_1" value="<?php echo $wr_1 ?>" id="wr_1" class="frm_input full_input" size="50" maxlength="255" placeholder="소제목(선택)">
+          </div>
+
+          <p>하단 내용 작성 시 <span style="color: red;">항목:내용</span> 으로 구분하여 작성. <br> <span style="color: red;">ex) 최소/최대 직경:10/160 mm</span> <br> (하단 내용은 작성된 것만 노출됨) </p>
+
+          <div class="write_div">
+            <input type="text" name="wr_2" value="<?php echo $wr_2 ?>" id="wr_2" class="frm_input full_input" size="50" maxlength="255" placeholder="내용1">
+          </div>
+
+          <div class="write_div">
+            <input type="text" name="wr_3" value="<?php echo $wr_3 ?>" id="wr_3" class="frm_input full_input" size="50" maxlength="255" placeholder="내용2">
+          </div>
+
+          <div class="write_div">
+            <input type="text" name="wr_4" value="<?php echo $wr_4 ?>" id="wr_4" class="frm_input full_input" size="50" maxlength="255" placeholder="내용3">
+          </div>
+
+          <div class="write_div">
+            <input type="text" name="wr_5" value="<?php echo $wr_5 ?>" id="wr_5" class="frm_input full_input" size="50" maxlength="255" placeholder="내용4">
+          </div>
+
+          <div class="write_div">
+            <input type="text" name="wr_6" value="<?php echo $wr_6 ?>" id="wr_6" class="frm_input full_input" size="50" maxlength="255" placeholder="내용5">
+          </div>
+
+          <?php for ($i=1; $is_link && $i<=G5_LINK_COUNT; $i++) { ?>
+          <!-- <div class="bo_w_link write_div">
             <label for="wr_link<?php echo $i ?>"><i class="fa fa-link" aria-hidden="true"></i><span class="sound_only"> 링크  #<?php echo $i ?></span></label>
             <input type="text" name="wr_link<?php echo $i ?>" value="<?php if($w=="u"){ echo $write['wr_link'.$i]; } ?>" id="wr_link<?php echo $i ?>" class="frm_input full_input" size="50">
-          </div>
+          </div> -->
           <?php } ?>
 
-          <?php for ($i=0; $is_file && $i<0; $i++) { ?>
+          <?php for ($i=0; $is_file && $i<$file_count; $i++) { ?>
           <div class="bo_w_flie write_div">
             <div class="file_wr write_div">
               <label for="bf_file_<?php echo $i+1 ?>" class="lb_icon"><i class="fa fa-folder-open" aria-hidden="true"></i><span class="sound_only"> 파일 #<?php echo $i+1 ?></span></label>

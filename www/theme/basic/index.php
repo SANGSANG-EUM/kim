@@ -19,7 +19,7 @@ include_once(G5_THEME_PATH.'/head.php');
     <div class="main">
       <!-- 메인비주얼 { -->
       <div class="mainsec mainsec1">
-        <div class="wrapper">
+        <div class="wrapper2">
           <ul class="main-vs-slide-ctr-ul">
             <li class="main-vs-slide-ctr-li">
               <button type="button" class="main-vs-slide-btn">01</button>
@@ -48,7 +48,7 @@ include_once(G5_THEME_PATH.'/head.php');
         <div class="main-vs-slider">
           <div class="swiper-wrapper">
             <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual1.png');">
-              <div class="wrapper">
+              <div class="wrapper2">
                 <div class="main-vs-slide-in">
                   <h3 class="main-vs-slide-tit">
                     <span class="type1">토탈솔루션</span>
@@ -61,7 +61,7 @@ include_once(G5_THEME_PATH.'/head.php');
               </div>
             </div>
             <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual2.png');">
-              <div class="wrapper">
+              <div class="wrapper2">
                 <div class="main-vs-slide-in">
                   <h3 class="main-vs-slide-tit">
                     <span class="type1">주식회사 킴</span>
@@ -73,7 +73,7 @@ include_once(G5_THEME_PATH.'/head.php');
               </div>
             </div>
             <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual3.png');">
-              <div class="wrapper">
+              <div class="wrapper2">
                 <div class="main-vs-slide-in">
                   <h3 class="main-vs-slide-tit">
                     <span class="type1">볼/롤러스크류</span>
@@ -92,7 +92,7 @@ include_once(G5_THEME_PATH.'/head.php');
 
       <!-- 메인프로덕트 { -->
       <div class="mainsec mainsec2">
-        <div class="wrapper">
+        <div class="wrapper2">
           <h4 class="mainsec-tit">Main Product</h4>
           <ul class="main-prd-ul">
             <li class="main-prd-li">
@@ -272,7 +272,7 @@ include_once(G5_THEME_PATH.'/head.php');
 
       <!-- 인더스트리 { -->
       <div class="mainsec mainsec3">
-        <div class="wrapper">
+        <div class="wrapper2">
           <h4 class="mainsec-tit">Industry</h4>
           <ul class="main-ids-ul">
             <li class="main-ids-li">
@@ -330,7 +330,7 @@ include_once(G5_THEME_PATH.'/head.php');
 
       <!-- 히스토리&뉴스 { -->
       <div class="mainsec mainsec4">
-        <div class="wrapper">
+        <div class="wrapper2">
           <h4 class="mainsec-tit center">R&D History & NEWS</h4>
         </div>
         <div class="main-board-slider">
@@ -476,7 +476,7 @@ include_once(G5_THEME_PATH.'/head.php');
 
       <!-- 메인 하단 버튼 { -->
       <div class="mainsec mainsec5">
-        <div class="wrapper">
+        <div class="wrapper2">
           <div class="main-link-wr">
             <a href="" class="main-link">
               <div class="main-link-tit-wr">

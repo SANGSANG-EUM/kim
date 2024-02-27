@@ -15,7 +15,8 @@ input[type="submit"], button{cursor:pointer}
 input{border-radius: 0;}
 
 /* Content */
-.wrapper {padding: 0 3vw; width: calc(1520px + 6vw); max-width: 100%; margin: auto;}
+.wrapper {padding: 0 3vw; width: calc(1280px + 6vw); max-width: 100%; margin: auto;}
+.wrapper2 {padding: 0 3vw; width: calc(1520px + 6vw); max-width: 100%; margin: auto;}
 
 /* Text Cut */
 .textcut {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;}

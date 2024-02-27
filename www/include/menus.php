@@ -85,7 +85,7 @@ $sb_menus = [
       ],
       [
         'id' => 'abt_management',
-        'name' => '지속간으경영',
+        'name' => '지속가능경영',
         'link' => '#'
       ],
       [
@@ -103,12 +103,12 @@ $sb_menus = [
       [
         'id' => 'cap_research',
         'name' => '연구분야/연구실적',
-        'link' => '#'
+        'link' => '/research_kr'
       ],
       [
         'id' => 'cap_test',
         'name' => '시험평가능력',
-        'link' => '#'
+        'link' => '/test_kr'
       ],
       [
         'id' => 'cap_system',
@@ -118,7 +118,7 @@ $sb_menus = [
       [
         'id' => 'cap_equipment',
         'name' => '주요장비',
-        'link' => '#'
+        'link' => '/equipment_kr'
       ]
     ]
   ],
@@ -153,6 +153,11 @@ $sb_menus = [
         'id' => 'svc_data',
         'name' => '기술자료',
         'link' => '/data_kr?sca=카탈로그'
+      ],
+      [
+        'id' => 'svc_faq',
+        'name' => 'FAQ',
+        'link' => '/faq_kr'
       ],
       [
         'id' => 'svc_inquiry',

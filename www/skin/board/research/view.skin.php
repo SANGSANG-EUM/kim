@@ -1,6 +1,7 @@
 <?php
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
 include_once(G5_LIB_PATH.'/thumbnail.lib.php');
+
 $board_name = explode('_', $bo_table)[0];
 $board_lang = explode('_', $bo_table)[1];
 
@@ -15,8 +16,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 <script src="<?php echo G5_JS_URL; ?>/viewimageresize.js"></script>
 
 <div id="gallery_view" class="sub gallery">
-  <?php if ($board_name == 'data') {  
-    sub_top($sb_menus, 'service', 'svc_data'); 
+  <?php if ($board_name == 'research') {
+    sub_top($sb_menus, 'capabilities', 'cap_research'); 
   }?>
 
   <!-- sub contents { -->
@@ -88,7 +89,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
           }
           ?>
           <?php if($cnt) { ?>
-            <div id="bo_v_file" class="bo_v_source_ct">
+          <div id="bo_v_file" class="bo_v_source_ct">
             <ul>
               <?php
               // 가변 파일
@@ -224,7 +225,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <!-- } 게시물 관리 버튼 끝 -->
         
         <!-- 게시글 이동 버튼 { -->
-        <div id="bo_v_oth" style="display: none;">
+        <div id="bo_v_oth">
           <a href="<?php echo $list_href ?>" class="bo_v_back_btn">LIST</a>
 
           <?php if ($prev_href || $next_href) { ?>

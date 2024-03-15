@@ -13,7 +13,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
   <?php sub_top($sb_menus, 'cs', 'gallery'); ?>
 
   <!-- sub contents { -->
-  <div class="container sub_contents">
+  <div class="container board_contents">
     <div class="wrapper">
 
       <!-- 게시물 읽기 시작 { -->

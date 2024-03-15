@@ -17,7 +17,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
   <?php sub_top($sb_menus, 'cs', 'qa'); ?>
 
   <!-- sub contents { -->
-  <div class="container sub_contents">
+  <div class="container board_contents">
     <div class="wrapper">
 
       <!-- 게시물 작성/수정 시작 { -->

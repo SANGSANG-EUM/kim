@@ -480,7 +480,7 @@ html.no-overflowscrolling #autosave_pop {height:auto;max-height:10000px !importa
 .board-move-nothing {color: #999; padding: 20px 0;}
 .board-list-btn-wr {display: flex; align-items: center; justify-content: center; margin-top: 40px;}
 .board-list-btn {display: flex; align-items: center; justify-content: center; width: 220px; height: 60px; border-radius: 30px; background-color: #666; font-size: 18px; font-weight: 400; color: #fff; transition: .2s;}
-.board-list-btn:hover {background-color: #3A40FF;}
+.board-list-btn:hover {background-color: #333;}
 
 
 /* Responsive */

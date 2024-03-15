@@ -23,12 +23,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
   } ?>
 
   <!-- sub contents { -->
-  <div class="container sub_contents">
+  <div class="container board_contents">
     <div class="wrapper">
 
       <div class="sub-tit-wr">
         <h3 class="sub-tit">
-          <!-- 해당 페이지의 타이틀이 들어갑니다 -->
+          <!-- 본 페이지의 타이틀이 들어갑니다 (normal.js)-->
         </h3>
       </div>
 

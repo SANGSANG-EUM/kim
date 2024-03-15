@@ -5,104 +5,97 @@ $sb_menus = [
   [
     'id' => 'product',
     'name' => 'Product',
-    'link' => '#',
+    'link' => '/sub/product',
     'sb_2menus' => [
-      [
-        'id' => 'prd_ball',
-        'name' => '볼스크류',
-        'link' => '#',
-        // 'sb_3menus' => [
-        //   [
-        //     'id' => 'vision',
-        //     'name' => '비전',
-        //     'link' => '#'
-        //   ],
-        //   [
-        //     'id' => 'organization',
-        //     'name' => '조직도',
-        //     'link' => '#'
-        //   ]
-        // ]
-      ],
       [
         'id' => 'prd_roller',
         'name' => '롤러스크류',
-        'link' => '#'
+        'link' => '/sub/product1'
+      ],
+      [
+        'id' => 'prd_ball',
+        'name' => '볼스크류',
+        'link' => '/sub/product2',
       ],
       [
         'id' => 'prd_gear',
         'name' => '기어박스',
-        'link' => '#'
+        'link' => '/sub/product3'
       ],
       [
         'id' => 'prd_rotary',
         'name' => '회전형 액츄에이터',
-        'link' => '#'
+        'link' => '/sub/product4'
       ],
       [
         'id' => 'prd_linear',
         'name' => '선형 액츄에이터',
-        'link' => '#'
+        'link' => '/sub/product5'
       ]
     ]
   ],
   [
     'id' => 'industry',
     'name' => 'Industry',
-    'link' => '/qa',
+    'link' => '/sub/defense1',
     'sb_2menus' => [
       [
         'id' => 'ind_defense',
         'name' => '방위산업',
-        'link' => '#'
+        'link' => '/sub/defense1'
       ],
       [
         'id' => 'ind_general',
         'name' => '일반산업',
-        'link' => '#'
+        'link' => '/sub/general1'
       ],
       [
         'id' => 'ind_rnd',
         'name' => '연구개발',
-        'link' => '#'
+        'link' => '/sub/rnd'
       ]
     ]
   ],
   [
     'id' => 'aboutus',
     'name' => 'About us',
-    'link' => '#',
+    'link' => '/sub/company',
     'sb_2menus' => [
       [
         'id' => 'abt_company',
         'name' => '회사소개',
-        'link' => '#'
+        'link' => '/sub/company'
       ],
       [
         'id' => 'abt_history',
         'name' => '연혁',
-        'link' => '#'
+        'link' => '/sub/history'
       ],
       [
         'id' => 'abt_management',
         'name' => '지속가능경영',
-        'link' => '#'
+        'link' => '/sub/management1'
       ],
       [
         'id' => 'abt_workplace',
         'name' => '사업장',
-        'link' => '#'
+        'link' => '/sub/place'
       ]
     ]
   ],
   [
     'id' => 'capabilities',
     'name' => 'Capabilities',
-    'link' => '#',
+    'link' => '/sub/field',
     'sb_2menus' => [
       [
+        'id' => 'cap_field',
+        'name' => '연구분야',
+        'link' => '/sub/field'
+      ],
+      [
         'id' => 'cap_research',
-        'name' => '연구분야/연구실적',
+        'name' => '연구실적',
         'link' => '/research_kr'
       ],
       [
@@ -113,7 +106,7 @@ $sb_menus = [
       [
         'id' => 'cap_system',
         'name' => '품질경영시스템',
-        'link' => '#'
+        'link' => '/sub/system'
       ],
       [
         'id' => 'cap_equipment',
@@ -135,24 +128,24 @@ $sb_menus = [
       [
         'id' => 'news_video',
         'name' => '홍보동영상',
-        'link' => '#'
+        'link' => '/sub/video'
       ]
     ]
   ],
   [
     'id' => 'service',
     'name' => 'Service',
-    'link' => '#',
+    'link' => '/notice_kr',
     'sb_2menus' => [
       [
         'id' => 'svc_notice',
         'name' => '공지사항',
-        'link' => '#'
+        'link' => '/notice_kr'
       ],
       [
         'id' => 'svc_data',
         'name' => '기술자료',
-        'link' => '/data_kr?sca=카탈로그'
+        'link' => '/data_kr'
       ],
       [
         'id' => 'svc_faq',
@@ -160,9 +153,9 @@ $sb_menus = [
         'link' => '/faq_kr'
       ],
       [
-        'id' => 'svc_inquiry',
+        'id' => 'svc_contact',
         'name' => '문의사항',
-        'link' => '#'
+        'link' => '/sub/contact'
       ]
     ]
   ]

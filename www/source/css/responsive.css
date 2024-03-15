@@ -118,6 +118,10 @@
 .main-link-wr {gap: 2vw;}
 .main-link {flex-direction: column-reverse; gap: 10px;}
 .main-link-tit-wr {align-items: center;}
+
+/* 지속가능경영 > 윤리/준법 */
+.management1-circle-box.pc {display: none;}
+.management1-circle-box.mo {display: block;}
 }
 
 @media screen and (max-width:480px) {

@@ -30,7 +30,7 @@
 #bo_gall #gall_ul {margin:-25px -12.5px; padding:0; list-style:none;zoom:1; font-size: 0;}
 #bo_gall #gall_ul:after {display:block;visibility:hidden;clear:both;content:""}
 #bo_gall .gall_li {display: inline-block; padding: 25px 12.5px; font-size: 16px; vertical-align: top;}
-#bo_gall .gall_li .gall_chk {position:absolute;top:0;left:0;padding:5px;z-index:10}
+#bo_gall .gall_li .gall_chk {position:absolute;top:0;left:0;padding:5px;z-index:100}
 #bo_gall .gall_li .gall_chk input[type="checkbox"] + label span{top: 0; left: 0;}
 #bo_gall .gall_box {position:relative;margin:0;border-radius:0 0 2px 2px}
 #bo_gall .gall_con {position:relative}

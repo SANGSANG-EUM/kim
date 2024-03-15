@@ -17,6 +17,7 @@ include_once(G5_THEME_PATH.'/head.php');
 
 <div class="container">
     <div class="main">
+
       <!-- 메인비주얼 { -->
       <div class="mainsec mainsec1">
         <div class="wrapper2">
@@ -47,7 +48,7 @@ include_once(G5_THEME_PATH.'/head.php');
         </div>
         <div class="main-vs-slider">
           <div class="swiper-wrapper">
-            <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual1.png');">
+            <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual1.jpg');">
               <div class="wrapper2">
                 <div class="main-vs-slide-in">
                   <h3 class="main-vs-slide-tit">
@@ -60,7 +61,7 @@ include_once(G5_THEME_PATH.'/head.php');
                 </div>
               </div>
             </div>
-            <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual2.png');">
+            <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual2.jpg');">
               <div class="wrapper2">
                 <div class="main-vs-slide-in">
                   <h3 class="main-vs-slide-tit">
@@ -72,7 +73,7 @@ include_once(G5_THEME_PATH.'/head.php');
                 </div>
               </div>
             </div>
-            <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual3.png');">
+            <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual3.jpg');">
               <div class="wrapper2">
                 <div class="main-vs-slide-in">
                   <h3 class="main-vs-slide-tit">
@@ -86,6 +87,19 @@ include_once(G5_THEME_PATH.'/head.php');
               </div>
             </div>
           </div>
+          <div class="main-vs-slide swiper-slide" style="background-image: url('./source/img/mainvisual4.jpg');">
+            <div class="wrapper2">
+              <div class="main-vs-slide-in">
+                <h3 class="main-vs-slide-tit">
+                  <span class="type1">회전식 액츄에이터</span>
+                  <span class="type2">Rotary Actuator</span>
+                </h3>
+                <p class="main-vs-slide-txt">
+                  주식회사 킴은 사용환경에 적합한 <b>고정밀 볼 및 롤러스크류 솔루션</b>을 고객에게 제공합니다.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- } 메인비주얼 -->
@@ -96,41 +110,7 @@ include_once(G5_THEME_PATH.'/head.php');
           <h4 class="mainsec-tit">Main Product</h4>
           <ul class="main-prd-ul">
             <li class="main-prd-li">
-              <a href="" class="main-prd-li-link">
-                <div class="main-prd-bg">
-                  <img src="./source/img/img-mainprd1.jpg" alt="">
-                </div>
-                <div class="main-prd-box">
-                  <div class="main-prd-name">
-                    <p class="main-prd-txt en">Ball screw</p>
-                    <p class="main-prd-txt ko">볼스크류</p>
-                  </div>
-                </div>
-                <div class="main-prd-box hover">
-                  <div class="main-prd-name">
-                    <p class="main-prd-txt en">Ball screw</p>
-                    <p class="main-prd-txt ko">볼스크류</p>
-                  </div>
-                  <ul class="main-prd-info-ul">
-                    <li class="main-prd-info-li">
-                      해당 제품 특징
-                    </li>
-                    <li class="main-prd-info-li">
-                      해당 제품 특징
-                    </li>
-                    <li class="main-prd-info-li">
-                      해당 제품 특징
-                    </li>
-                  </ul>
-                  <p class="main-prd-more">
-                    <span>VIEW MORE</span>
-                    <img src="./source/img/icon-more.png" alt="">
-                  </p>
-                </div>
-              </a>
-            </li>
-            <li class="main-prd-li">
-              <a href="" class="main-prd-li-link">
+              <a href="/sub/product1" class="main-prd-li-link">
                 <div class="main-prd-bg">
                   <img src="./source/img/img-mainprd2.jpg" alt="">
                 </div>
@@ -147,13 +127,16 @@ include_once(G5_THEME_PATH.'/head.php');
                   </div>
                   <ul class="main-prd-info-ul">
                     <li class="main-prd-info-li">
-                      유성 방식
+                    유도무기
                     </li>
                     <li class="main-prd-info-li">
-                      리사이클링 방식
+                    지상장비
                     </li>
                     <li class="main-prd-info-li">
-                      인버티드 방식
+                    로봇
+                    </li>
+                    <li class="main-prd-info-li">
+                    해양
                     </li>
                   </ul>
                   <p class="main-prd-more">
@@ -164,30 +147,33 @@ include_once(G5_THEME_PATH.'/head.php');
               </a>
             </li>
             <li class="main-prd-li">
-              <a href="" class="main-prd-li-link">
+              <a href="/sub/product2" class="main-prd-li-link">
                 <div class="main-prd-bg">
-                  <img src="./source/img/img-mainprd3.jpg" alt="">
+                  <img src="./source/img/img-mainprd1.jpg" alt="">
                 </div>
                 <div class="main-prd-box">
                   <div class="main-prd-name">
-                    <p class="main-prd-txt en">Gears</p>
-                    <p class="main-prd-txt ko">기어</p>
+                    <p class="main-prd-txt en">Ball screw</p>
+                    <p class="main-prd-txt ko">볼스크류</p>
                   </div>
                 </div>
                 <div class="main-prd-box hover">
                   <div class="main-prd-name">
-                    <p class="main-prd-txt en">Gears</p>
-                    <p class="main-prd-txt ko">기어</p>
+                    <p class="main-prd-txt en">Ball screw</p>
+                    <p class="main-prd-txt ko">볼스크류</p>
                   </div>
                   <ul class="main-prd-info-ul">
                     <li class="main-prd-info-li">
-                      해당 제품 특징
+                    유도무기
                     </li>
                     <li class="main-prd-info-li">
-                      해당 제품 특징
+                    감시정찰
                     </li>
                     <li class="main-prd-info-li">
-                      해당 제품 특징
+                    로봇
+                    </li>
+                    <li class="main-prd-info-li">
+                    의료
                     </li>
                   </ul>
                   <p class="main-prd-more">
@@ -198,41 +184,7 @@ include_once(G5_THEME_PATH.'/head.php');
               </a>
             </li>
             <li class="main-prd-li">
-              <a href="" class="main-prd-li-link">
-                <div class="main-prd-bg">
-                  <img src="./source/img/img-mainprd4.jpg" alt="">
-                </div>
-                <div class="main-prd-box">
-                  <div class="main-prd-name">
-                    <p class="main-prd-txt en">EMA</p>
-                    <p class="main-prd-txt ko">전기식 액츄에이터</p>
-                  </div>
-                </div>
-                <div class="main-prd-box hover">
-                  <div class="main-prd-name">
-                    <p class="main-prd-txt en">EMA</p>
-                    <p class="main-prd-txt ko">전기식 액츄에이터</p>
-                  </div>
-                  <ul class="main-prd-info-ul">
-                    <li class="main-prd-info-li">
-                      해당 제품 특징
-                    </li>
-                    <li class="main-prd-info-li">
-                      해당 제품 특징
-                    </li>
-                    <li class="main-prd-info-li">
-                      해당 제품 특징
-                    </li>
-                  </ul>
-                  <p class="main-prd-more">
-                    <span>VIEW MORE</span>
-                    <img src="./source/img/icon-more.png" alt="">
-                  </p>
-                </div>
-              </a>
-            </li>
-            <li class="main-prd-li">
-              <a href="" class="main-prd-li-link">
+              <a href="/sub/product3" class="main-prd-li-link">
                 <div class="main-prd-bg">
                   <img src="./source/img/img-mainprd5.jpg" alt="">
                 </div>
@@ -249,13 +201,96 @@ include_once(G5_THEME_PATH.'/head.php');
                   </div>
                   <ul class="main-prd-info-ul">
                     <li class="main-prd-info-li">
-                      해당 제품 특징
+                    자동장전용 기어조립체
                     </li>
                     <li class="main-prd-info-li">
-                      해당 제품 특징
+                    포탑 선회 및 고저구동장치
                     </li>
                     <li class="main-prd-info-li">
-                      해당 제품 특징
+                    연구개발 Test bench 초고속기어박스
+                    </li>
+                    <li class="main-prd-info-li">
+                    칠러/압축용 터보 기어
+                    </li>
+                  </ul>
+                  <p class="main-prd-more">
+                    <span>VIEW MORE</span>
+                    <img src="./source/img/icon-more.png" alt="">
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li class="main-prd-li">
+              <a href="/sub/product4" class="main-prd-li-link">
+                <div class="main-prd-bg">
+                  <img src="./source/img/img-mainprd3.jpg" alt="">
+                </div>
+                <div class="main-prd-box">
+                  <div class="main-prd-name">
+                    <p class="main-prd-txt en">Rotary Actuator</p>
+                    <p class="main-prd-txt ko">회전형 액츄에이터</p>
+                  </div>
+                </div>
+                <div class="main-prd-box hover">
+                  <div class="main-prd-name">
+                    <p class="main-prd-txt en">Rotary Actuator</p>
+                    <p class="main-prd-txt ko">회전형 액츄에이터</p>
+                  </div>
+                  <ul class="main-prd-info-ul">
+                    <li class="main-prd-info-li">
+                    GIMBAL
+                    </li>
+                    <li class="main-prd-info-li">
+                    무인 수상, 잠수정
+                    </li>
+                    <li class="main-prd-info-li">
+                    VTOL
+                    </li>
+                    <li class="main-prd-info-li">
+                    UAV
+                    </li>
+                    <li class="main-prd-info-li">
+                    UGV, 로봇
+                    </li>
+                  </ul>
+                  <p class="main-prd-more">
+                    <span>VIEW MORE</span>
+                    <img src="./source/img/icon-more.png" alt="">
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li class="main-prd-li">
+              <a href="/sub/product5" class="main-prd-li-link">
+                <div class="main-prd-bg">
+                  <img src="./source/img/img-mainprd4.jpg" alt="">
+                </div>
+                <div class="main-prd-box">
+                  <div class="main-prd-name">
+                    <p class="main-prd-txt en">Linear Actuator</p>
+                    <p class="main-prd-txt ko">선형 엑츄에이터</p>
+                  </div>
+                </div>
+                <div class="main-prd-box hover">
+                  <div class="main-prd-name">
+                    <p class="main-prd-txt en">Linear Actuator</p>
+                    <p class="main-prd-txt ko">선형 엑츄에이터</p>
+                  </div>
+                  <ul class="main-prd-info-ul">
+                    <li class="main-prd-info-li">
+                    항공 개폐장치
+                    </li>
+                    <li class="main-prd-info-li">
+                    포탑구동
+                    </li>
+                    <li class="main-prd-info-li">
+                    VTOL
+                    </li>
+                    <li class="main-prd-info-li">
+                    시추선
+                    </li>
+                    <li class="main-prd-info-li">
+                    건설기계
                     </li>
                   </ul>
                   <p class="main-prd-more">
@@ -279,7 +314,7 @@ include_once(G5_THEME_PATH.'/head.php');
               <div class="main-ids-bg">
                 <img src="./source/img/img-mainids1.jpg" alt="">
               </div>
-              <a href="" class="main-ids-li-link">
+              <a href="/sub/defense1" class="main-ids-li-link">
                 <div class="main-ids-cnt">
                   <p class="main-ids-txt1">KIM Industry 01 - Defense Industry</p>
                   <p class="main-ids-tit">방위산업</p>
@@ -295,7 +330,7 @@ include_once(G5_THEME_PATH.'/head.php');
               <div class="main-ids-bg">
                 <img src="./source/img/img-mainids2.jpg" alt="">
               </div>
-              <a href="" class="main-ids-li-link">
+              <a href="/sub/general1" class="main-ids-li-link">
                 <div class="main-ids-cnt">
                   <p class="main-ids-txt1">KIM Industry 02 - General Industry</p>
                   <p class="main-ids-tit">일반산업</p>
@@ -311,7 +346,7 @@ include_once(G5_THEME_PATH.'/head.php');
               <div class="main-ids-bg">
                 <img src="./source/img/img-mainids3.jpg" alt="">
               </div>
-              <a href="" class="main-ids-li-link">
+              <a href="/sub/rnd" class="main-ids-li-link">
                 <div class="main-ids-cnt">
                   <p class="main-ids-txt1">KIM Industry 03 - R&D</p>
                   <p class="main-ids-tit">연구개발</p>
@@ -333,144 +368,7 @@ include_once(G5_THEME_PATH.'/head.php');
         <div class="wrapper2">
           <h4 class="mainsec-tit center">R&D History & NEWS</h4>
         </div>
-        <div class="main-board-slider">
-          <div class="main-board-ctr-wr">
-            <ul class="main-board-slide-ctr-ul">
-              <li class="main-board-slide-ctr-li">
-                <button type="button" class="main-board-slide-btn prev"><img src="./source/img/icon-bdsl_arrow_prev.png"
-                    alt="이전 슬라이드"></button>
-              </li>
-              <li class="main-board-slide-ctr-li">
-                <button type="button" class="main-board-slide-btn next"><img src="./source/img/icon-bdsl_arrow_next.png"
-                    alt="다음 슬라이드"></button>
-              </li>
-              <li class="main-board-slide-ctr-li">
-                <a href="" class="main-board-slide-btn more"><img src="./source/img/icon-bbsl_more.png" alt="더보기"></a>
-              </li>
-            </ul>
-          </div>
-          <div class="swiper-wrapper">
-            <div class="main-board-slide swiper-slide">
-              <a href="" class="main-board-slide-link">
-                <div class="main-board-slide-in">
-                  <div class="main-board-slide-top">
-                    <p class="main-board-slide-cate">NEWS</p>
-                    <p class="main-board-slide-tit textcut line1">1 (주)킴 뉴스 게시글의 타이틀이 노출될 영역입니다.</p>
-                  </div>
-                  <div class="main-board-slide-cnt textcut line3">
-                    1 (주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다.
-                  </div>
-                </div>
-                <p class="main-prd-more">
-                  <span>VIEW MORE</span>
-                  <img src="./source/img/icon-more.png" alt="">
-                </p>
-              </a>
-            </div>
-            <div class="main-board-slide swiper-slide">
-              <a href="" class="main-board-slide-link">
-                <div class="main-board-slide-in">
-                  <div class="main-board-slide-top">
-                    <p class="main-board-slide-cate">NEWS</p>
-                    <p class="main-board-slide-tit textcut line1">2 (주)킴 뉴스 게시글의 타이틀이 노출될 영역입니다.</p>
-                  </div>
-                  <div class="main-board-slide-cnt textcut line3">
-                    2 (주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴
-                    뉴스 게시글 본문 내용이 일부 노출될 영역입니다.
-                  </div>
-                </div>
-                <p class="main-prd-more">
-                  <span>VIEW MORE</span>
-                  <img src="./source/img/icon-more.png" alt="">
-                </p>
-              </a>
-            </div>
-            <div class="main-board-slide swiper-slide">
-              <a href="" class="main-board-slide-link">
-                <div class="main-board-slide-in">
-                  <div class="main-board-slide-top">
-                    <p class="main-board-slide-cate">NEWS</p>
-                    <p class="main-board-slide-tit textcut line1">3 (주)킴 뉴스 게시글의 타이틀이 노출될 영역입니다.</p>
-                  </div>
-                  <div class="main-board-slide-cnt textcut line3">
-                    3 (주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴
-                    뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴 뉴스 게
-                    시글 본문 내용이 일부 노출될 영역입니다...(주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴
-                    뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴 뉴스 게
-                    시글 본문 내용이 일부 노출될 영역입니다...
-                  </div>
-                </div>
-                <p class="main-prd-more">
-                  <span>VIEW MORE</span>
-                  <img src="./source/img/icon-more.png" alt="">
-                </p>
-              </a>
-            </div>
-            <div class="main-board-slide swiper-slide">
-              <a href="" class="main-board-slide-link">
-                <div class="main-board-slide-in">
-                  <div class="main-board-slide-top">
-                    <p class="main-board-slide-cate">NEWS</p>
-                    <p class="main-board-slide-tit textcut line1">4 (주)킴 뉴스 게시글의 타이틀이 노출될 영역입니다.</p>
-                  </div>
-                  <div class="main-board-slide-cnt textcut line3">
-                    4 (주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴
-                    뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴 뉴스 게
-                    시글 본문 내용이 일부 노출될 영역입니다...(주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴
-                    뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴 뉴스 게
-                    시글 본문 내용이 일부 노출될 영역입니다...
-                  </div>
-                </div>
-                <p class="main-prd-more">
-                  <span>VIEW MORE</span>
-                  <img src="./source/img/icon-more.png" alt="">
-                </p>
-              </a>
-            </div>
-            <div class="main-board-slide swiper-slide">
-              <a href="" class="main-board-slide-link">
-                <div class="main-board-slide-in">
-                  <div class="main-board-slide-top">
-                    <p class="main-board-slide-cate">NEWS</p>
-                    <p class="main-board-slide-tit textcut line1">5 (주)킴 뉴스 게시글의 타이틀이 노출될 영역입니다.</p>
-                  </div>
-                  <div class="main-board-slide-cnt textcut line3">
-                    5 (주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴
-                    뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴 뉴스 게
-                    시글 본문 내용이 일부 노출될 영역입니다...(주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴
-                    뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴 뉴스 게
-                    시글 본문 내용이 일부 노출될 영역입니다...
-                  </div>
-                </div>
-                <p class="main-prd-more">
-                  <span>VIEW MORE</span>
-                  <img src="./source/img/icon-more.png" alt="">
-                </p>
-              </a>
-            </div>
-            <div class="main-board-slide swiper-slide">
-              <a href="" class="main-board-slide-link">
-                <div class="main-board-slide-in">
-                  <div class="main-board-slide-top">
-                    <p class="main-board-slide-cate">NEWS</p>
-                    <p class="main-board-slide-tit textcut line1">(주)킴 뉴스 게시글의 타이틀이 노출될 영역입니다.</p>
-                  </div>
-                  <div class="main-board-slide-cnt textcut line3">
-                    (주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴
-                    뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴 뉴스 게
-                    시글 본문 내용이 일부 노출될 영역입니다...(주)킴 뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴
-                    뉴스 게시글 본문 내용이 일부 노출될 영역입니다. (주)킴 뉴스 게
-                    시글 본문 내용이 일부 노출될 영역입니다...
-                  </div>
-                </div>
-                <p class="main-prd-more">
-                  <span>VIEW MORE</span>
-                  <img src="./source/img/icon-more.png" alt="">
-                </p>
-              </a>
-            </div>
-          </div>
-        </div>
+        <?php echo latest_all("basic", "research_kr,news_kr", 10, 20); ?>
       </div>
       <!-- } 히스토리&뉴스 -->
 
@@ -478,7 +376,7 @@ include_once(G5_THEME_PATH.'/head.php');
       <div class="mainsec mainsec5">
         <div class="wrapper2">
           <div class="main-link-wr">
-            <a href="" class="main-link">
+            <a href="/sub/video" class="main-link">
               <div class="main-link-tit-wr">
                 <p class="main-link-tit ko">홍보동영상</p>
                 <p class="main-link-tit en">Company Video</p>
@@ -488,7 +386,7 @@ include_once(G5_THEME_PATH.'/head.php');
                 <img src="./source/img/icon-mainbtn1_hover.png" alt="" style="width: 43px;">
               </div>
             </a>
-            <a href="" class="main-link">
+            <a href="/notice_kr" class="main-link">
               <div class="main-link-tit-wr">
                 <p class="main-link-tit ko">공지사항</p>
                 <p class="main-link-tit en">Notice</p>
@@ -498,7 +396,7 @@ include_once(G5_THEME_PATH.'/head.php');
                 <img src="./source/img/icon-mainbtn2_hover.png" alt="" style="width: 27px;">
               </div>
             </a>
-            <a href="" class="main-link">
+            <a href="/data_kr" class="main-link">
               <div class="main-link-tit-wr">
                 <p class="main-link-tit ko">기술자료</p>
                 <p class="main-link-tit en">Technical files</p>
@@ -512,8 +410,8 @@ include_once(G5_THEME_PATH.'/head.php');
         </div>
       </div>
       <!-- } 메인 하단 버튼 -->
-
     </div>
+
   </div>
 
 <?php

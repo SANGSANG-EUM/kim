@@ -24,18 +24,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
   }?>
 
   <!-- sub contents { -->
-  <div class="container sub_contents">
+  <div class="container board_contents">
     <div class="wrapper">
 
       <div class="sub-tit-wr">
         <h3 class="sub-tit">
-          <!-- 해당 페이지의 타이틀이 들어갑니다 -->
+          <!-- 본 페이지의 타이틀이 들어갑니다 (normal.js)-->
         </h3>
-      </div>
-
-      <!-- 게시판 목록 시작 { -->
-      <div id="bo_gall" style="width:<?php echo $width; ?>">
-
         <!-- 게시판 카테고리 시작 { -->
         <?php if ($is_category) { ?>
         <nav id="bo_cate">
@@ -46,6 +41,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </nav>
         <?php } ?>
         <!-- } 게시판 페이지 정보 -->
+      </div>
+
+      <!-- 게시판 목록 시작 { -->
+      <div id="bo_gall" style="width:<?php echo $width; ?>">
 
         <div class="bo_top_info">
           <!-- 게시판 페이지 정보 { -->

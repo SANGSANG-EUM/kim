@@ -400,10 +400,11 @@ html.no-overflowscrolling #autosave_pop {height:auto;max-height:10000px !importa
 .bo_subject {font-size: 18px; font-weight: 600; color: #333;}
 .bo_content {font-weight: 200;}
 
-#bo_list .tbl_head01 table tr:hover::after {opacity: 1;}
-#bo_list .tbl_head01 table tr:hover a, #bo_list .tbl_head01 table tr:hover .bo_subject, #bo_list .tbl_head01 table tr:hover td {text-decoration: none; color: #fff;}
-#bo_list .tbl_head01 tbody tr:hover td.td_datetime {font-size: 0;}
-#bo_list .tbl_head01 tbody tr:hover td.td_datetime::after {opacity: 1; background-position: center right 40px;}
+#bo_list .tbl_head01 table tr:not(.empty_table_tr):hover::after {opacity: 1;}
+#bo_list .tbl_head01 table tr:not(.empty_table_tr):hover a, #bo_list .tbl_head01 table tr:not(.empty_table_tr):hover .bo_subject, #bo_list .tbl_head01 table tr:not(.empty_table_tr):hover td {text-decoration: none; color: #fff;}
+#bo_list .tbl_head01 tbody tr:not(.empty_table_tr):hover td.td_datetime {font-size: 0;}
+#bo_list .tbl_head01 tbody tr:not(.empty_table_tr):hover td.td_datetime::after {opacity: 1; background-position: center right 40px;}
+
 
 /* board view */
 #bo_v header {display: flex; align-items: center; gap: 20px; justify-content: space-between; padding: 20px 0; border: 0; border-bottom: 1px solid rgba(0, 0, 0, .1);}
@@ -413,6 +414,7 @@ html.no-overflowscrolling #autosave_pop {height:auto;max-height:10000px !importa
 .profile_info_ct_ul > li i {display: none;}
 #bo_v_title .bo_v_tit {font-size: 24px; font-weight: 500; color: #333;}
 #bo_v_atc {padding: 40px 0; border-bottom: 1px solid rgba(0, 0, 0, .1);}
+#bo_v_con table td {border: 1px solid #ccc;}
 
 #bo_v_file {border: 0; padding: 10px 20px;}
 #bo_v_file ul {}
@@ -437,7 +439,7 @@ html.no-overflowscrolling #autosave_pop {height:auto;max-height:10000px !importa
 .board-move-nothing {color: #999; padding: 20px 0;}
 .board-list-btn-wr {display: flex; align-items: center; justify-content: center; margin-top: 40px;}
 .board-list-btn {display: flex; align-items: center; justify-content: center; width: 220px; height: 60px; border-radius: 30px; background-color: #666; font-size: 18px; font-weight: 400; color: #fff; transition: .2s;}
-.board-list-btn:hover {background-color: #3A40FF;}
+.board-list-btn:hover {background-color: #333;}
 
 /* Responsive */
 @media screen and (max-width:1290px){

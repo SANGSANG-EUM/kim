@@ -24,16 +24,18 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
   <?php 
   if ($board_name == 'news') {
     sub_top($sb_menus, 'news', 'news_news'); 
+  } else if ($board_name == 'notice') {
+    sub_top($sb_menus, 'service', 'svc_notice'); 
   }
   ?>
 
   <!-- sub contents { -->
-  <div class="container sub_contents">
+  <div class="container board_contents">
     <div class="wrapper">
 
       <div class="sub-tit-wr">
         <h3 class="sub-tit">
-          <!-- 해당 페이지의 타이틀이 들어갑니다 -->
+          <!-- 본 페이지의 타이틀이 들어갑니다 (normal.js)-->
         </h3>
       </div>
 
@@ -173,7 +175,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                       </ul>
                       <?php } ?>
                       <p class="bo_subject"><?php echo $list[$i]['subject']; //글 제목 ?></p>
-                      <p class="bo_content"><?php echo $list[$i]['wr_content']; //글 내용 ?></p>
+                      <p class="bo_content"><?php echo cut_str(strip_tags($list[$i]['wr_content']),100)?></p>
 
                       <?php
                       //echo $list[$i]['icon_reply']; //댓글 아이콘
@@ -198,7 +200,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                   <td class="td_datetime"><?php echo date("Y-m-d", strtotime($list[$i]['wr_datetime'])) ?></td>
                 </tr>
                 <?php } ?>
-                <?php if (count($list) == 0) { echo '<tr><td colspan="'.$colspan.'" class="empty_table">게시물이 없습니다.</td></tr>'; } ?>
+                <?php if (count($list) == 0) { echo '<tr class="empty_table_tr"><td colspan="'.$colspan.'" class="empty_table">게시물이 없습니다.</td></tr>'; } ?>
               </tbody>
             </table>
           </div>
